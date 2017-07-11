@@ -15,7 +15,7 @@ SET GLASSFISH_PATH="D:\Program Files (x86)\glassfish-4.1.2\glassfish"
 :the war file you want to deploy
 SET WAR_PATH=%PROJECT_FLODER%\dist\%WAR_NAME%
 
-:no need to change
+:change "domain1" to your domain name
 SET GLASSFISH_BIN_PATH=%GLASSFISH_PATH%\bin
 SET GLASSFISH_AUTODEPLOY_PATH=%GLASSFISH_PATH%\domains\domain1\autodeploy
 
