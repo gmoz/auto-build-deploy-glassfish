@@ -15,9 +15,12 @@ SET GLASSFISH_PATH="D:\Program Files (x86)\glassfish-4.1.2\glassfish"
 :the war file you want to deploy
 SET WAR_PATH=%PROJECT_FLODER%\dist\%WAR_NAME%
 
-:change "domain1" to your domain name
+:your domain name
+SET DOMAIN_NAME=domain1
+
+:no need to change
 SET GLASSFISH_BIN_PATH=%GLASSFISH_PATH%\bin
-SET GLASSFISH_AUTODEPLOY_PATH=%GLASSFISH_PATH%\domains\domain1\autodeploy
+SET GLASSFISH_AUTODEPLOY_PATH=%GLASSFISH_PATH%\domains\%DOMAIN_NAME%\autodeploy
 
 
 ECHO "[Clean and Build...Start]"
@@ -25,7 +28,7 @@ call ant -f %PROJECT_FLODER% -Dnb.internal.action.name=rebuild -DforceRedeploy=f
 ECHO.
 
 ECHO "[Stop Glassfish...]"
-call %GLASSFISH_BIN_PATH%\asadmin stop-domain domain1
+call %GLASSFISH_BIN_PATH%\asadmin stop-domain DOMAIN_NAME
 ECHO.
 
 ECHO "[Delete old war file from autodeploy floder...]"
@@ -39,7 +42,7 @@ XCOPY /y %WAR_PATH% %GLASSFISH_AUTODEPLOY_PATH%\
 ECHO.
 
 ECHO "[Start Glassfish...]"
-call %GLASSFISH_BIN_PATH%\asadmin start-domain domain1
+call %GLASSFISH_BIN_PATH%\asadmin start-domain DOMAIN_NAME
 ECHO.
 
 set /p="Waiting autodeploy..."<nul
