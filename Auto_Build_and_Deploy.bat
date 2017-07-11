@@ -34,13 +34,12 @@ DEL %GLASSFISH_AUTODEPLOY_PATH%\%WAR_NAME%
 DEL %GLASSFISH_AUTODEPLOY_PATH%\".autodeploystatus"\%WAR_NAME%
 ECHO.
 
-ECHO "[Start Glassfish...]"
-call %GLASSFISH_BIN_PATH%\asadmin start-domain domain1
-ECHO.
-
-
 ECHO "[Copy war file to autodeploy floder...]"
 XCOPY /y %WAR_PATH% %GLASSFISH_AUTODEPLOY_PATH%\
+ECHO.
+
+ECHO "[Start Glassfish...]"
+call %GLASSFISH_BIN_PATH%\asadmin start-domain domain1
 ECHO.
 
 set /p="Waiting autodeploy..."<nul
