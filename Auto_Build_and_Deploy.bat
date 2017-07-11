@@ -56,6 +56,6 @@ ECHO.
 ECHO.
 ECHO.
 ECHO.
-ECHO "[Build & Deploy OpusOne finshed]"
+ECHO "[Build & Deploy finshed]"
 
 PAUSE
