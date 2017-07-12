@@ -28,7 +28,7 @@ call ant -f %PROJECT_FLODER% -Dnb.internal.action.name=rebuild -DforceRedeploy=f
 ECHO.
 
 ECHO "[Stop Glassfish...]"
-call %GLASSFISH_BIN_PATH%\asadmin stop-domain DOMAIN_NAME
+call %GLASSFISH_BIN_PATH%\asadmin stop-domain %DOMAIN_NAME%
 ECHO.
 
 ECHO "[Delete old war file from autodeploy floder...]"
@@ -42,7 +42,7 @@ XCOPY /y %WAR_PATH% %GLASSFISH_AUTODEPLOY_PATH%\
 ECHO.
 
 ECHO "[Start Glassfish...]"
-call %GLASSFISH_BIN_PATH%\asadmin start-domain DOMAIN_NAME
+call %GLASSFISH_BIN_PATH%\asadmin start-domain %DOMAIN_NAME%
 ECHO.
 
 set /p="Waiting autodeploy..."<nul
